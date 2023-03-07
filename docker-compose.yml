@@ -17,9 +17,9 @@ services:
     image: quay.io/keycloak/keycloak:legacy
     volumes:
       - ./imports:/opt/jboss/keycloak/imports
-    # command: 
-    #   - "-b 0.0.0.0 -Dkeycloak.import=/opt/jboss/keycloak/imports/wittra.json"
     environment:
+      KC_HOSTNAME: localhost
+      KC_HOSTNAME_PORT: 8080
       KEYCLOAK_IMPORT: /opt/jboss/keycloak/imports/realm.json -Dkeycloak.profile.feature.upload_scripts=enabled    
       DB_VENDOR: POSTGRES
       DB_ADDR: postgres
